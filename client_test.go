@@ -27,6 +27,7 @@ func TestConnEPSV(t *testing.T) {
 	testConn(t, false)
 }
 
+//gocyclo:ignore
 func testConn(t *testing.T, disableEPSV bool) {
 	mock, c := openConn(t, "127.0.0.1", DialWithTimeout(5*time.Second), DialWithDisabledEPSV(disableEPSV))
 

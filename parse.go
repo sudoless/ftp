@@ -71,6 +71,8 @@ func parseRFC3659ListLine(line string, now time.Time, loc *time.Location) (*Entr
 	return e, nil
 }
 
+//gocyclo:ignore
+// TODO refactor this function
 // parseLsListLine parses a directory line in a format based on the output of
 // the UNIX ls command.
 func parseLsListLine(line string, now time.Time, loc *time.Location) (*Entry, error) {

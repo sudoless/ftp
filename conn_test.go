@@ -58,6 +58,7 @@ func newFtpMockExt(t *testing.T, address, modtime string) (*ftpMock, error) {
 	return mock, nil
 }
 
+//gocyclo:ignore
 func (mock *ftpMock) listen() {
 	// Listen for an incoming connection.
 	conn, err := mock.listener.Accept()
