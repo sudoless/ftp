@@ -1,23 +1,20 @@
-# goftp #
+# goftp
 
-[![Units tests](https://github.com/jlaffaye/ftp/actions/workflows/unit_tests.yaml/badge.svg)](https://github.com/jlaffaye/ftp/actions/workflows/unit_tests.yaml)
-[![Coverage Status](https://coveralls.io/repos/jlaffaye/ftp/badge.svg?branch=master&service=github)](https://coveralls.io/github/jlaffaye/ftp?branch=master)
-[![Go ReportCard](https://goreportcard.com/badge/jlaffaye/ftp)](http://goreportcard.com/report/jlaffaye/ftp)
-[![Go Reference](https://pkg.go.dev/badge/github.com/jlaffaye/ftp.svg)](https://pkg.go.dev/github.com/jlaffaye/ftp)
+A FTP client package for Go. Forked from [jlaffaye/ftp](https://github.com/jlaffaye/ftp).
 
-A FTP client package for Go
-
-## Install ##
+## Install
 
 ```
 go get -u github.com/jlaffaye/ftp
 ```
 
-## Documentation ##
+## Documentation
 
 https://pkg.go.dev/github.com/jlaffaye/ftp
 
-## Example ##
+## Example
+
+### Simple
 
 ```go
 c, err := ftp.Dial("ftp.example.org:21", ftp.DialWithTimeout(5*time.Second))
@@ -37,7 +34,7 @@ if err := c.Quit(); err != nil {
 }
 ```
 
-## Store a file example ##
+### Store a file
 
 ```go
 data := bytes.NewBufferString("Hello World")
@@ -47,7 +44,7 @@ if err != nil {
 }
 ```
 
-## Read a file example ##
+### Read a file
 
 ```go
 r, err := c.Retr("test-file.txt")
@@ -59,3 +56,8 @@ defer r.Close()
 buf, err := ioutil.ReadAll(r)
 println(string(buf))
 ```
+
+## TODO
+
+- [ ] Remove third party dependencies
+- [ ] Increase test coverage
